@@ -145,7 +145,6 @@ public class ArticleServiceTest {
     @Test
     public void _2번글의_이전글은_1번글_이다() {
         ArticleDto id2ArticleDto = articleService.getArticleById(2);
-
         ArticleDto id1ArticleDto = articleService.getPrevArticle(id2ArticleDto);
 
         assertThat(id1ArticleDto.getId()).isEqualTo(1);
@@ -154,8 +153,22 @@ public class ArticleServiceTest {
     @Test
     public void _1번글의_이전글은_없다() {
         ArticleDto id1ArticleDto = articleService.getArticleById(1);
-
         ArticleDto nullArticleDto = articleService.getPrevArticle(id1ArticleDto);
+
+        assertThat(nullArticleDto).isNull();
+    }
+
+    @Test
+    public void _2번글의_다음글은_3번글_이다() {
+        ArticleDto id3ArticleDto = articleService.getNextArticle(2);
+
+        assertThat(id3ArticleDto.getId()).isEqualTo(3);
+    }
+
+    @Test
+    public void 마지막글의_다음글은_없다() {
+        long lastArticleId = TEST_DATA_SIZE;
+        ArticleDto nullArticleDto = articleService.getNextArticle(lastArticleId);
 
         assertThat(nullArticleDto).isNull();
     }
