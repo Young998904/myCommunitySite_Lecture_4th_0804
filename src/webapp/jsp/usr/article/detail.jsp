@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ include file="../common/head.jspf" %>
+<%@ include file="../common/head.jspf"%>
 
 <section>
     <div class="container px-3 mx-auto">
@@ -16,10 +16,14 @@
                 <i class="fa-solid fa-pen-to-square"></i> 수정 : ${article.modifiedDate}
             </div>
             <div>
-                ${article.body}
+                <div class="toast-ui-viewer">
+                    <script type="text/x-template">
+                        ${article.body}
+                    </script>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<%@ include file="../common/foot.jspf" %>
+<%@ include file="../common/foot.jspf"%>
