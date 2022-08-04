@@ -10,6 +10,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Ut {
+    public static void sleep(long milli) {
+        try {
+            Thread.sleep(milli);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static Map<String, Object> mapOf(Object... args) {
         int dataSize = args.length / 2;
 
