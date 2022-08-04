@@ -35,4 +35,14 @@ public class ArticleServiceTest {
         assertThat(articleDto.getModifiedDate()).isNotNull();
         assertThat(articleDto.isBlind()).isFalse();
     }
+
+    @Test
+    public void getArticlesCount() {
+        ArticleService articleService = Container.getObj(ArticleService.class);
+
+        // selectLong 메서드 이용
+        long articleCount = articleService.getArticlesCount();
+
+        assertThat(articleCount).isEqualTo(3);
+    }
 }
